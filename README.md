@@ -48,8 +48,9 @@ nginx
 
 # Restart PHP-FPM and Nginx
 pkill -f php-fpm83
+nginx -s quit
 php-fpm83 -D
-nginx -s reload
+nginx
 ```
 
 ## Cloudflare Tunnel (optional, inside chroot)

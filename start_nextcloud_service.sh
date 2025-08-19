@@ -3,7 +3,7 @@
 # This script runs automatically on boot via Magisk /data/adb/service.d/
 
 # Wait for system to be fully booted
-sleep 5
+sleep 30
 
 # Check if Alpine chroot exists
 if [ ! -f "/data/alpinedroid/chroot.sh" ]; then

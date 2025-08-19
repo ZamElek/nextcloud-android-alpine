@@ -1,6 +1,24 @@
 ## Overview
 AlpineDroid lets you run an Alpine Linux chroot on your Android device to host Nextcloud with Nginx, PHP-FPM, and an optional Cloudflare Tunnel. Auto-start on boot is handled via [Magisk boot scripts](https://github.com/topjohnwu/Magisk/blob/master/docs/guides.md#boot-scripts) at `/data/adb/service.d`.
 
+## Project Structure
+This project uses [AlpineDroid](https://github.com/stnby/AlpineDroid.git) as a git submodule to manage the Alpine Linux chroot setup. The AlpineDroid repository contains the core scripts for setting up and managing the Alpine Linux environment on your Android device.
+
+### Working with the Submodule
+```bash
+# Clone this repository with submodules
+git clone --recursive https://github.com/yourusername/nextcloud-android-alpine.git
+
+# Or if you already cloned without --recursive
+git submodule update --init --recursive
+
+# Update the AlpineDroid submodule to latest
+git submodule update --remote alpinedroid
+
+# Pull latest changes for this project and submodules
+git pull && git submodule update --recursive
+```
+
 ## Prerequisites
 - Unlocked bootloader and root access
 - Magisk installed with root
@@ -10,10 +28,10 @@ AlpineDroid lets you run an Alpine Linux chroot on your Android device to host N
 ## Install AlpineDroid (chroot)
 ```bash
 # Plug in your device and enable USB debugging)
-adb push alpinedroid/setup_alpinedroid.sh /sdcard
+adb push alpinedroid/setup.sh /sdcard
 adb shell
 su
-sh /setup_alpinedroid.sh
+sh /sdcard/setup.sh
 ```
 
 ### Chroot helpers (on device)
@@ -35,10 +53,7 @@ Follow the official Alpine wiki for a lightweight SQLite-based setup:
 - Alpine wiki: https://wiki.alpinelinux.org/wiki/Nextcloud
 
 ### Configure Nginx
-Use the provided template as a starting point and adapt paths/domains as needed:
-- File in this repo: `nginx/nextcloud.massage4u.vip.conf`
-
-Copy it into Alpine and place it, for example, at `/etc/nginx/http.d/nextcloud.conf`, then reload Nginx inside chroot.
+Begin with the provided Nginx configuration template and modify it to suit your specific paths and domain names. You can find an example in the official Nextcloud documentation: https://github.com/nextcloud/documentation/blob/master/admin_manual/installation/nginx.rst Copy it into Alpine and place it, for example, at `/etc/nginx/http.d/nextcloud.conf`, then reload Nginx inside chroot.
 
 ### Start/Restart services (inside chroot)
 ```bash

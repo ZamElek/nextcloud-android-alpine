@@ -1,0 +1,3 @@
+[submodule "alpinedroid"]
+	path = alpinedroid
+	url = https://github.com/stnby/AlpineDroid.git

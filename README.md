@@ -7,7 +7,7 @@ This project uses [AlpineDroid](https://github.com/stnby/AlpineDroid.git) as a g
 ### Working with the Submodule
 ```bash
 # Clone this repository with submodules
-git clone --recursive https://github.com/ZamElek/nextcloud-android-alpine.git
+git clone --recursive https://github.com/zamelek/nextcloud-android-alpine.git
 
 # Or if you already cloned without --recursive
 git submodule update --init --recursive

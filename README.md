@@ -152,4 +152,5 @@ nginx -s quit || true
 - Nextcloud Alpine guide: https://wiki.alpinelinux.org/wiki/Nextcloud
 - Nextcloud Admin Manual: https://docs.nextcloud.com/server/latest/admin_manual/
 - Magisk boot scripts: https://github.com/topjohnwu/Magisk/blob/master/docs/guides.md#boot-scripts
+- Setup Cloudflare Tunnel: https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/create-remote-tunnel/
 - Restore visitor IPs (Cloudflare): https://developers.cloudflare.com/support/troubleshooting/restoring-visitor-ips/restoring-original-visitor-ips/
